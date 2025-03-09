@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Error Page</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #121212; /* Темный фон */
+            color: #ffffff; /* Белый текст */
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            text-align: center;
+        }
+        .warning-sign {
+            cursor: pointer;
+            font-size: 50px;
+            color: #ff0000; /* Красный цвет для знака опасности */
+        }
+        .error-text {
+            margin-top: 10px;
+            font-size: 20px;
+            color: #808080; /* Cерый цвет для текста ошибки */
+        }
+        .image {
+            margin-top: 20px;
+            max-width: 100%;
+            height: auto;
+            display: none; /* Скрываем изображение по умолчанию */
+        }
+        .text {
+            margin-top: 10px;
+            font-size: 20px;
+            display: none; /* Скрываем текст по умолчанию */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="warning-sign" onclick="showContent()">⚠️</div>
+        <div class="error-text">Произошла неизвестная ошибка</div>
+        <img id="customImage" class="image" src="img/rikroll.jpg" alt="Custom Image">
+        <div id="customText" class="text">by n1xww</div>
+    </div>
+
+    <audio id="music" loop>
+        <source src="krik.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <script>
+        function showContent() {
+            // Включаем музыку
+            var audio = document.getElementById("music");
+            audio.play();
+
+            // Скрываем знак опасности и текст ошибки
+            var warningSign = document.querySelector(".warning-sign");
+            var errorText = document.querySelector(".error-text");
+            warningSign.style.display = "none";
+            errorText.style.display = "none";
+
+            // Показываем изображение и текст
+            var image = document.getElementById("customImage");
+            var text = document.getElementById("customText");
+            image.style.display = "block";
+            text.style.display = "block";
+        }
+    </script>
+</body>
+</html>
